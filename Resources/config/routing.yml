@@ -1,0 +1,7 @@
+alleingaenger_image_processor_homepage:
+    resource: "@AlleingaengerImageProcessorBundle/Controller/"
+    type:     annotation
+    prefix:   ""
+    defaults: {_format: json}
+#    path:     /
+#    defaults: { _controller: AlleingaengerImageProcessorBundle:Default:index }

@@ -1,0 +1,7 @@
+services:
+  alleingaenger_image_processor.image_processor:
+    class: Alleingaenger\ImageProcessorBundle\Service\ImageProcessorService
+    arguments: ["%alleingaenger_image_processor.uploadDirectory%", {"host": "alleingaenger_redis"}]
+#    alleingaenger_image_processor.example:
+#        class: Alleingaenger\ImageProcessorBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
