@@ -68,19 +68,24 @@ class ImageProcessorService
      */
     public function saveRawImage($image, $type)
     {
+        $key = md5_file($image->getPathname());
+        $meta = $this->getMeta($key);
+        if ($meta) {
+            return $meta->orig;
+        }
         $name = $this->generateName();
         $size = $this->imagine->open($image->getPathname())->getSize();
         $meta = new MetaData(
             $size->getWidth(),
             $size->getHeight(),
             $name . '.' . $type,
-            str_replace('/', '', $name),
+            $key,
             $type,
             ''
         );
         mkdir(dirname($this->uploadDir . '/' . $meta->filename), 0777, true);
         $image->move(dirname($this->uploadDir . '/' . $meta->filename), basename($meta->filename));
-        $this->redis->set($meta->orig, $this->serializer->serialize($meta, 'json'));
+        $this->redis->set($key, $this->serializer->serialize($meta, 'json'));
         return $meta->orig;
     }
 

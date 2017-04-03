@@ -28,8 +28,7 @@ class ImageController extends Controller
         if (empty($request->files->keys())) {
             throw new UploadException("No file is uploaded");
         }
-        $name = $this->imageProcessorService()->saveRawImage($request->files->get($request->files->keys()[0]), $type);
-        return $this->imageProcessorService()->getVariantsMeta($name);
+        return $this->imageProcessorService()->saveRawImage($request->files->get($request->files->keys()[0]), $type);
     }
 
     /**
