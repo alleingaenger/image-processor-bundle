@@ -2,7 +2,7 @@
     "name": "alleingaenger/image-processor-bundle",
     "description": "This bundle provides an endpoint to handle image-uploads resizing and all this stuff.",
     "type": "symfony-bundle",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "autoload": {
         "psr-4": {
             "Alleingaenger\\ImageProcessorBundle\\": "./"
@@ -12,7 +12,7 @@
         "ext-redis": "*",
         "friendsofsymfony/rest-bundle": "^1.7",
         "imagine/Imagine": "^0.6.3",
-        "symfony/framework-bundle": "3.0.*",
+        "symfony/framework-bundle": "^3.0.0",
         "jms/serializer": "^1.6"
     },
     "require-dev": {
